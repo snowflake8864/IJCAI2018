@@ -1,0 +1,53 @@
+round1_ijcai_18_train_20180301 ：478138	日期：2018-09-18~2018-09-24
+round1_ijcai_18_test_a_20180301 ：18371 日期：2018-09-25
+
+
+train中含有 478087 不同的instance_id
+test中含有 18371 个不同的instance_id
+
+
+469093的负样本 8994的正样本
+比例  =  52.1:1
+
+
+train：
+instance_id item_id item_category_list item_property_list item_brand_id item_city_id item_price_level item_sales_level item_collected_level item_pv_level user_id user_gender_id user_age_level user_occupation_id user_star_level context_id context_timestamp context_page_id predict_category_property shop_id shop_review_num_level shop_review_positive_rate shop_star_level shop_score_service shop_score_delivery shop_score_description is_trade
+instance_id item_id item_category_list item_property_list item_brand_id item_city_id item_price_level item_sales_level item_collected_level item_pv_level user_id user_gender_id user_age_level user_occupation_id user_star_level context_id context_timestamp context_page_id predict_category_property shop_id shop_review_num_level shop_review_positive_rate shop_star_level shop_score_service shop_score_delivery shop_score_description
+
+
+# 用户的星级和购买之间的关系
+    user_star_level  is_trade
+0                -1        12
+1              3000       370
+2              3001       347
+3              3002      1236
+4              3003      1445
+5              3004      1217
+6              3005      1260
+7              3006      1572
+8              3007      1048
+9              3008       392
+10             3009        90
+11             3010         5
+
+# 用户的年龄和购买之间的关系
+   user_age_level  is_trade
+0              -1        12
+1            1000       177
+2            1001        85
+3            1002      1109
+4            1003      2995
+5            1004      2512
+6            1005      1338
+7            1006       645
+8            1007       121
+
+# 用户的职业和购买之间的关系
+   user_occupation_id  is_trade
+0                  -1        12
+1                2002      2981
+2                2003        86
+3                2004       439
+4                2005      5476
+
+商品价格和购买之间的关系
