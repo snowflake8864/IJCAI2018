@@ -1,0 +1,28 @@
+/home/icrcdpg/ICRC-chris/code/dnn_ctr-master/main.py:40: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  dfTest['is_trade'] = 0
+The model is deepfm(fm+deep layers)
+Init fm part
+Init fm part succeed
+Init deep part
+Init deep part succeed
+Init succeed
+**************************************************
+[1] loss: 0.486946 metric: 0.682157 time: 1157.6 s
+**************************************************
+**************************************************
+[2] loss: 0.168007 metric: 0.739821 time: 1729.8 s
+**************************************************
+**************************************************
+[3] loss: 0.168458 metric: 0.736263 time: 1253.3 s
+**************************************************
+**************************************************
+[4] loss: 0.168721 metric: 0.735741 time: 1726.0 s
+**************************************************
+**************************************************
+[5] loss: 0.168909 metric: 0.735321 time: 1705.2 s
+**************************************************
+1

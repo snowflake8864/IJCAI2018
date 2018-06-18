@@ -1,0 +1,60 @@
+﻿解题思路：
+	此题分A/B榜，是转化率预估问题中，日常问题的预估和异常时期的预估。
+	特征工程的基础框架可参见IJCAI.pdf
+	对于第一个问题而言，较为常规，构造常规性的特征工程即可
+	
+
+将item_category_list，item_property_list，predict_category_property按照‘；’拆分，删除缺失值较多和无变化值 得到9列，
+
+第一组
+1.User每天/每天每小时的count数 2
+2.User对于item类别属性每天/每小时的count数 3*2
+3.User对于item_category_list，item_property_list，predict_category_property每天/每小时的的count数 9*2
+
+第二组
+将用户第一次点击的样本记为1，将用户最后一次点击的样本记为3，其余记为2
+1.用户对于item属性的click顺序 6
+2.用户对于shop属性的click顺序 6
+3.用户对于item_category_list，item_property_list，predict_category_property的click顺序 9
+4.用户对于context_page_id的click顺序 1
+
+第三组
+1.统计各类别在此次出现前的count数 7
+2.统计前一次与后一次点击与现在的时间差 12*2
+3.统计各类别的trade数 12
+
+第四组
+1.转化率平滑 5
+2.加入原始特征 35
+
+
+复赛
+四组训练集特征有差异  主体特征如下
+
+1.User的click行为
+（1）用户的行为时间顺序（第一次点击，最后一次点击，中间时间点击）22
+（2）此时刻前后1小时，6小时的click次数统计并统计对shop，item的次数统计4*3
+（3）用户对于item，shop属性的统计时间长度为半天 1天 2天 8天 4*2*3*4
+（4）用户对于类别属性的count计时间长度为半天 1天 2天 8天 10*4
+2.User的画像 
+（1）用户级用户属性偏爱的shop，item 5*（7+16）
+（2）用户及用户属性偏爱的item_category_list，item_property_list，item_brand,item_city_id 5*11
+
+3.shop的画像
+（1）shop对于user的统计时间长度为半天 1天 2天 8天 4*3*4
+（2）shop对于user，item的ratio 4+6
+4.item的画像
+（1）item对于user的统计时间长度为半天 1天 2天 8天 4*3*4
+（2）特殊时间与正常时间56两天的价格波动情况 4*2
+（3）item_brand对于用户的统计统计时间长度为半天 1天 2天 8天 4*3*4
+5.基于时间的特征
+（1）统计各类别在此次出现前的count数 7
+（2）统计前一次与后一次点击与现在的时间差 12*2
+（3）统计各类别的trade数 12
+（4）此时刻用户对于相同item_category_list/item_property_list 相同item/shop/city/brand之前之后的coun数 10
+（5）user，item，shop三项交叉特征 13
+
+6.概率特征
+前七天数据预测第8天的概率值，将概率值加入特征 1
+
+7.原始特征 35
